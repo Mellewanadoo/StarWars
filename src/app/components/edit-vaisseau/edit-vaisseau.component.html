@@ -1,0 +1,49 @@
+<h1>Editer un vaisseau</h1>
+
+<form #vaisseauForm="ngForm" (ngSubmit)="editVaisseau()">
+
+  <label for="nom">Nom du vaisseau</label>
+  <input type="text" class="form-control" id="nom" name="nom"  required [(ngModel)]="vaisseau.nom" #nom="ngModel">
+  <div [hidden]="nom.valid"
+       class="alert alert-danger">
+    Veuillez saisir le Nom du vaisseau
+  </div>
+
+  <label for="type">Type</label>
+  <input type="text" class="form-control" id="type" name="type" required  [(ngModel)]="vaisseau.type" #type="ngModel">
+  <div [hidden]="type.valid"
+       class="alert alert-danger">
+    Veuillez saisir le type du vaisseau
+  </div>
+
+  <label>Plus rapide que la lumière</label>
+  <input type="radio" name="lightSpeed" [(ngModel)]="vaisseau.lightSpeed" [value]="true">
+  <label>Moins rapide que la lumière</label>
+  <input type="radio" name="lightSpeed" [(ngModel)]="vaisseau.lightSpeed" [value]="false">
+  <br>
+
+
+  <label for="equipage">Equipage</label>
+  <input type="number" class="form-control" id="equipage" name="equipage" required [(ngModel)]="vaisseau.equipage" #equipage="ngModel">
+  <div [hidden]="equipage.valid"
+       class="alert alert-danger">
+    Veuillez saisir le nombre qui correspond à l'équipage du vaisseau
+  </div>
+
+  <label for="nbPassenger">Nombre de passagers</label>
+  <input type="number" class="form-control" id="nbPassenger" name="nbPassenger" required [(ngModel)]="vaisseau.nbPassenger" #nbPassenger="ngModel">
+  <div [hidden]="nbPassenger.valid"
+       class="alert alert-danger">
+    Veuillez saisir le nombre qui correspond au passagers du vaisseau
+  </div>
+
+  <label for="image">Photo du vaisseau</label>
+  <input type="text" class="form-control" id="image" name="image" required [(ngModel)]="vaisseau.image" #image="ngModel">
+  <div [hidden]="image.valid"
+       class="alert alert-danger">
+    Photo invalide
+  </div>
+
+
+  <input [disabled]="!vaisseauForm.valid" type="submit">
+</form>

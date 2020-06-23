@@ -1,0 +1,28 @@
+<div><h1>Les vaisseaux Star Wars</h1>
+<a routerLink="/vaisseau/add">Ajouter un vaisseau</a>
+<table class="table">
+  <thead>
+  <th>ID</th>
+  <th>Photo</th>
+  <th>Nom</th>
+  <th>Type</th>
+  <th>Vitesse Lumière</th>
+  <th>Equipage</th>
+  <th>Nombre de passagers</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let vaisseau of this.vaisseaux">
+    <td>{{ vaisseau.id }}</td>
+    <td><img src="assets/images/vaisseaux/{{ vaisseau.image }}"/></td>
+    <td>{{ vaisseau.nom }}</td>
+    <td>{{ vaisseau.type }}</td>
+    <td>{{ vaisseau.lightSpeed?'oui':'non' }}</td>
+    <td>{{ vaisseau.equipage }}</td>
+    <td>{{ vaisseau.nbPassenger }}</td>
+    <td><a [routerLink]="['/vaisseaux', vaisseau.id]">Voir le détail de la planète {{ vaisseau.name }}</a>
+      <a [routerLink]="['/vaisseau/edit', vaisseau.id]">Edition du vaisseau {{ vaisseau.name }}</a>
+      <a style="text-decoration: underline; color: blue; cursor: pointer" (click)="deleteVaisseau(vaisseau)">Supprimer le vaisseau {{ vaisseau.nom }}</a></td>
+  </tr>
+  </tbody>
+</table>
+</div>

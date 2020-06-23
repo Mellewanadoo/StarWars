@@ -1,0 +1,35 @@
+<div>{{ developpeuse | initiales }}
+<h2>Bonjour nous sommes le : {{ date | date: "dd/MM/yyyy" }}</h2>
+<h1>Les planetes Star Wars</h1>
+<a routerLink="/planet/add">Ajouter une planète</a>
+<table class="table">
+  <thead>
+  <th>ID</th>
+  <th>Photo</th>
+  <th>Nom</th>
+  <th>Localisation</th>
+  <th>Paysage</th>
+  <th>Espèces Intelligentes</th>
+  <th>premiereApparition</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let planet of this.planets">
+    <td>{{ planet.id }}</td>
+    <td><img src="assets/images/planets/{{planet.image}} "/></td>
+    <td>{{ planet.nom | uppercase }}</td>
+    <td>{{ planet.localisation }}</td>
+    <td>{{ planet.paysage }}</td>
+    <td>{{ planet.especesInteligentes}}</td>
+    <td>{{ planet.premiereApparition}}</td>
+    <td>
+      <a [routerLink]="['/planets', planet.id]">Voir le détail de la planète {{ planet.name }}</a>
+      <a [routerLink]="['/planets/edit', planet.id]">Edition de la planète {{ planet.name }}</a>
+      <a style="text-decoration: underline; color: blue; cursor: pointer" (click)="deletePlanete(planet)">Supprimer la planète {{ planet.nom }}</a>
+    </td>
+
+  </tr>
+  </tbody>
+</table>
+
+{{ this.planets | json }}
+</div>

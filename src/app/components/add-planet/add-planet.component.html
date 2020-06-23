@@ -1,0 +1,42 @@
+<div><h1>Ajouter une planète</h1>
+
+<form #planetForm="ngForm" (ngSubmit)="submitPlanet()">
+
+  <label for="id">Id de la planète</label>
+  <input type="number" class="form-control" id="id"  name="id" required [(ngModel)]="planet.id"  #id="ngModel">
+  <div [hidden]="id.valid"
+       class="alert alert-danger">
+    Veuillez saisir un ID
+  </div>
+
+  <label for="nom">Nom de la planète</label>
+  <input type="text" class="form-control" id="nom" name="nom"  required [(ngModel)]="planet.nom" #nom="ngModel">
+  <div [hidden]="nom.valid"
+       class="alert alert-danger">
+    Veuillez saisir un Nom
+  </div>
+
+  <label for="type">Type</label>
+  <input type="text" class="form-control" id="type" name="type" required  [(ngModel)]="planet.localisation" #localisation="ngModel">
+  <div [hidden]="localisation.valid"
+       class="alert alert-danger">
+    Veuillez saisir la localisation de la planète
+  </div>
+
+  <label for="paysage">Paysage</label>
+  <input type="text" class="form-control" id="paysage" name="paysage" required [(ngModel)]="planet.paysage" #paysage="ngModel">
+  <div [hidden]="paysage.valid"
+       class="alert alert-danger">
+    Veuillez saisir le type de paysage de la planète
+  </div>
+
+  <label for="image">Photo de la planète</label>
+  <input type="text" class="form-control" id="image" name="image" required [(ngModel)]="planet.image" #image="ngModel">
+  <div [hidden]="image.valid"
+       class="alert alert-danger">
+    Photo invalide
+  </div>
+
+  <input [disabled]="!planetForm.valid" type="submit">
+</form>
+</div>
