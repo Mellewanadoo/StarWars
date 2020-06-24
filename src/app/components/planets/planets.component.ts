@@ -11,11 +11,16 @@ export class PlanetsComponent implements OnInit {
   developpeuse = 'Camille De Sousa Mathieu';
   planets: Planet[];
   date = new Date();
+  isLoading: boolean;
   constructor(private planetService: PlanetService) { }
-
-  ngOnInit(): void {
-    this.planets = this.planetService.getAllPlanets();
+  ngOnInit(): void  {
+    this.isLoading = true;
+    this.planetService.getPlanets().subscribe((data: Planet[]) => {
+    this.planets = data;
+    this.isLoading = false;
+  });
   }
+
   getAllPlanets(): Planet[] {
     return this.planets;
   }

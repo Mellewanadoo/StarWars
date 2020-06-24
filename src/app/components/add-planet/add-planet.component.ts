@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class AddPlanetComponent implements OnInit {
 
   planet = new Planet();
+  router: any;
 
   constructor(private planetService: PlanetService, private routers: Router, private toastr: ToastrService) { }
 
@@ -19,8 +20,9 @@ export class AddPlanetComponent implements OnInit {
   }
 
   submitPlanet(): void {
-    this.planetService.addPlanet(this.planet);
-    this.routers.navigate(['/planets']);
+    this.planetService.addPlanet(this.planet).subscribe(then => {
+      this.router.navigate(['/planets']);
+    });
     this.toastr.success('Planète ajouté', 'Félicitation!');
   }
 }

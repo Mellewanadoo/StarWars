@@ -15,7 +15,8 @@ import { AddVaisseauComponent } from './components/add-vaisseau/add-vaisseau.com
 import { ToastrService, ToastrModule } from 'ngx-toastr';
 import { InitialesPipe } from './pipes/initiales.pipe';
 import { EditPlanetComponent } from './components/edit-planet/edit-planet.component';
-import { EditVaisseauComponent } from './components/edit-vaisseau/edit-vaisseau.component'
+import { EditVaisseauComponent } from './components/edit-vaisseau/edit-vaisseau.component';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { EditVaisseauComponent } from './components/edit-vaisseau/edit-vaisseau.
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
