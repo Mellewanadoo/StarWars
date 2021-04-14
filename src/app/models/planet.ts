@@ -2,10 +2,11 @@ export class Planet {
   id: number;
   image: string;
   nom: string;
-  localisation : string;
+  localisation: string;
   paysage: string;
   especesInteligentes: string;
   premiereApparition: string;
+  // tslint:disable-next-line:max-line-length
   constructor(id: number = null, image: string = null, nom: string = null, localisation: string = null, paysage: string = null , especesInteligentes: string = null , premiereApparition: string = null) {
     this.id = id;
     this.image = image;

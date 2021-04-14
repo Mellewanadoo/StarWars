@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class LoggerService {
   consoleLoader() {
-    console.log('Que la force soit avec moi!');;
+    console.log('Que la force soit avec moi!');
   }
 
   constructor() {

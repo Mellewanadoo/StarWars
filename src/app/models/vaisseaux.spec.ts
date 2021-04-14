@@ -1,7 +1,7 @@
-import { Vaisseaux } from './vaisseaux';
+import { Vaisseau } from './vaisseaux';
 
 describe('Vaisseaux', () => {
   it('should create an instance', () => {
-    expect(new Vaisseaux()).toBeTruthy();
+    expect(new Vaisseau()).toBeTruthy();
   });
 });

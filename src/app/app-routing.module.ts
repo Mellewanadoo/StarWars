@@ -8,7 +8,7 @@ import { VaisseauDetailComponent } from './components/vaisseau-detail/vaisseau-d
 import {AddPlanetComponent} from './components/add-planet/add-planet.component';
 import {AddVaisseauComponent} from './components/add-vaisseau/add-vaisseau.component';
 import { EditPlanetComponent } from './components/edit-planet/edit-planet.component';
-import { EditVaisseauComponent } from './components/edit-vaisseau/edit-vaisseau.component'
+import { EditVaisseauComponent } from './components/edit-vaisseau/edit-vaisseau.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },

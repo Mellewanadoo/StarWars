@@ -2,30 +2,34 @@ import { Injectable } from '@angular/core';
 import {Planet} from '../models/planet';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
-import {catchError, retry} from 'rxjs/internal/operators'
+import {catchError, retry} from 'rxjs/internal/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlanetService {
-    getOnePlanet(arg0: number) {
-        throw new Error("Method not implemented.");
-    }
+  /*constructor(private http: HttpClient ) {
+    this.planets = [];
+  }
 
     planets = [
     new Planet(1, 'alderaan.jpg', 'Alderaan', 'Mondes du Noyau', 'Montagnes', 'Humains', 'Épisode IV'),
-    new Planet(2, 'dagobah.jpg', 'Dagobah', 'Bordure extérieure', 'Marais, tourbières et jungles', 'Yoda','Épisode V'),
-    new Planet(3, 'tatooine.jpg', 'Tatooine', 'Bordure extérieure', 'Déserts, oasis et hautes terres', 'Jawas et Tuskens ','Épisode IV ')
-  ];
-  apiURL = 'http://localhost:3000/planets';
+    new Planet(2, 'dagobah.jpg', 'Dagobah', 'Bordure extérieure', 'Marais, tourbières et jungles', 'Yoda', 'Episode V'),
+    new Planet(3, 'tatooine.jpg', 'Tatooine', 'Bordure extérieure', 'Déserts, oasis et hautes terres', 'Jawas et Tuskens ', 'Episode IV ')
+  ];*/
+  apiURL = 'http://localhost:3000/api/planets';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  }
+  };
+  planets: any[];
   constructor(private http: HttpClient ) {
     this.planets = [];
   }
+    getOnePlanet(arg0: number) {
+        throw new Error('Method not implemented.');
+    }
     getPlanets(): Observable<Planet[]> {
       return this.http.get<Planet[]>(this.apiURL)
         .pipe(
@@ -37,7 +41,7 @@ export class PlanetService {
     return this.planets.filter(planet =>  planet.id === id )[0];
   }
   addPlanet(planet: Planet): Observable<Planet> {
-    return this.http.post<Planet>(this.apiURL ,planet, this.httpOptions).pipe(
+    return this.http.post<Planet>(this.apiURL , planet, this.httpOptions).pipe(
       catchError(this.handleError)
     );
   }
@@ -47,7 +51,7 @@ export class PlanetService {
   }
   edit(planet: Planet): Planet[] {
    this.planets.filter( planetToUpdate => planet.id === planetToUpdate.id)[0] = planet;
-   return this.planets
+   return this.planets;
   }
   handleError(error) {
     let errorMessage = '';
