@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Vaisseau} from '../../models/vaisseaux';
-import {VaisseauService} from '../../services/vaisseaux.service'
+import {VaisseauService} from '../../services/vaisseaux.service';
 
 @Component({
   selector: 'app-vaisseau-detail',
