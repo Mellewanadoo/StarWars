@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "dev": "ng serve",
-    "start": "serve ./dist/starWars",
+    "start": "serve ./dist/starWars --single",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
