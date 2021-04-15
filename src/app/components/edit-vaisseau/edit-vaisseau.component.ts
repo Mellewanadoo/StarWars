@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Vaisseau} from '../../models/vaisseaux'
+import {Vaisseau} from '../../models/vaisseaux';
 import {ActivatedRoute, Router} from '@angular/router';
 import {VaisseauService} from '../../services/vaisseaux.service';
 
@@ -19,6 +19,6 @@ export class EditVaisseauComponent implements OnInit {
   }
   editVaisseau() {
     this.vaisseauxService.edit(this.vaisseau);
-    this.router.navigate( ['/vaisseaux'])
+    this.router.navigate( ['/vaisseaux']);
   }
 }
