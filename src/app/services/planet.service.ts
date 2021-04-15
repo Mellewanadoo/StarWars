@@ -3,6 +3,7 @@ import {Planet} from '../models/planet';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import {catchError, retry} from 'rxjs/internal/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class PlanetService {
     this.planets = [];
   }
     planets = [];
-  apiURL = 'http://localhost:3000/api/planets';
+  apiURL = environment.API_URL;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
