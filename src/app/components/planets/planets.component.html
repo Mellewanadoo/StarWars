@@ -15,15 +15,15 @@
   <tbody>
   <tr *ngFor="let planet of this.planets">
     <td>{{ planet.id }}</td>
-    <td><img src="assets/images/planets/{{planet.image}} "/></td>
+    <td><img src="{{planet.image}}" alt="photo de la planète"/></td>
     <td>{{ planet.nom | uppercase }}</td>
     <td>{{ planet.localisation }}</td>
     <td>{{ planet.paysage }}</td>
     <td>{{ planet.especesInteligentes}}</td>
     <td>{{ planet.premiereApparition}}</td>
     <td>
-      <a [routerLink]="['/planets', planet.id]">Voir le détail de la planète {{ planet.name }}</a>
-      <a [routerLink]="['/planets/edit', planet.id]">Edition de la planète {{ planet.name }}</a>
+      <a [routerLink]="['/planets'+ '/' + planet.id]">Voir le détail de la planète {{ planet.nom }}</a>
+      <a [routerLink]="['/planets/edit', planet.id]">Edition de la planète {{ planet.nom }}</a>
       <a style="text-decoration: underline; color: blue; cursor: pointer" (click)="deletePlanete(planet)">Supprimer la planète {{ planet.nom }}</a>
     </td>
 
@@ -31,5 +31,4 @@
   </tbody>
 </table>
 
-{{ this.planets | json }}
 </div>

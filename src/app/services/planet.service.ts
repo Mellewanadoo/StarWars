@@ -8,53 +8,46 @@ import {catchError, retry} from 'rxjs/internal/operators';
   providedIn: 'root'
 })
 export class PlanetService {
-  /*constructor(private http: HttpClient ) {
+  constructor(private http: HttpClient ) {
     this.planets = [];
   }
-
-    planets = [
-    new Planet(1, 'alderaan.jpg', 'Alderaan', 'Mondes du Noyau', 'Montagnes', 'Humains', 'Épisode IV'),
-    new Planet(2, 'dagobah.jpg', 'Dagobah', 'Bordure extérieure', 'Marais, tourbières et jungles', 'Yoda', 'Episode V'),
-    new Planet(3, 'tatooine.jpg', 'Tatooine', 'Bordure extérieure', 'Déserts, oasis et hautes terres', 'Jawas et Tuskens ', 'Episode IV ')
-  ];*/
+    planets = [];
   apiURL = 'http://localhost:3000/api/planets';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
-  planets: any[];
-  constructor(private http: HttpClient ) {
-    this.planets = [];
-  }
-    getOnePlanet(arg0: number) {
-        throw new Error('Method not implemented.');
-    }
-    getPlanets(): Observable<Planet[]> {
+  getPlanets(): Observable<Planet[]> {
       return this.http.get<Planet[]>(this.apiURL)
         .pipe(
           retry(1),
           catchError(this.handleError)
         );
     }
-   getOnePlanetById(id: number): Planet {
-    return this.planets.filter(planet =>  planet.id === id )[0];
+  getOnePlanetById(id: number): Observable<Planet> {
+    return this.http.get<Planet>(`${this.apiURL}/${id}`, this.httpOptions).pipe(
+      catchError(this.handleError)
+    );
   }
   addPlanet(planet: Planet): Observable<Planet> {
     return this.http.post<Planet>(this.apiURL , planet, this.httpOptions).pipe(
       catchError(this.handleError)
     );
   }
-  deletePlanete(planet: Planet): Planet[] {
-    this.planets = this.planets.filter(planetToDelete => planet !== planetToDelete);
-    return this.planets;
+  deletePlanete(planet: Planet): Observable<Planet> {
+    return this.http.delete<Planet>(`${this.apiURL}/${planet.id}`, this.httpOptions).pipe(
+      catchError(this.handleError)
+    );
   }
-  edit(planet: Planet): Planet[] {
-   this.planets.filter( planetToUpdate => planet.id === planetToUpdate.id)[0] = planet;
-   return this.planets;
+
+  edit(planet: Planet): Observable<Planet> {
+    return this.http.patch<Planet>(this.apiURL , planet.id, this.httpOptions).pipe(
+      catchError(this.handleError)
+    );
   }
   handleError(error) {
-    let errorMessage = '';
+    let errorMessage: string;
     if ( error.error instanceof ErrorEvent ) {
       // Get client-side error
       errorMessage = error.error.message;

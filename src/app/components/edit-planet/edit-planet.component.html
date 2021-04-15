@@ -1,6 +1,6 @@
 <div><h1>Editer une planète</h1>
 
-  <form #planetForm="ngForm" (ngSubmit)="editPlanet()">
+  <form #planetForm="ngForm" (ngSubmit)="editPlanet(planet)">
 
     <label for="nom">Nom de la planète</label>
     <input type="text" class="form-control" id="nom" name="nom"  required [(ngModel)]="planet.nom" #nom="ngModel">

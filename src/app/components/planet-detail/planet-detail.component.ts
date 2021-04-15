@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Planet} from '../../models/planet';
 import {PlanetService} from '../../services/planet.service';
 
@@ -11,11 +11,15 @@ import {PlanetService} from '../../services/planet.service';
 export class PlanetDetailComponent implements OnInit {
   id: number;
   planet: Planet;
-  constructor(private route: ActivatedRoute, private planetService: PlanetService) { }
+  private isLoading: boolean;
+  private route: any;
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private planetService: PlanetService) { }
 
-  ngOnInit(): void {
-    this.id = +this.route.snapshot.paramMap.get('id');
-    this.planet = this.planetService.getOnePlanetById(this.id);
+  ngOnInit() {
+    this.isLoading = true;
+    this.planetService.getOnePlanetById(+this.route.snapshot.paramMap.get('id')).subscribe((data: Planet) => {
+       this.planet = data;
+       this.isLoading = false;
+    });
   }
-
 }
