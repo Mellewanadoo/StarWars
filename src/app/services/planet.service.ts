@@ -42,7 +42,7 @@ export class PlanetService {
   }
 
   edit(planet: Planet): Observable<Planet> {
-    return this.http.patch<Planet>(this.apiURL , planet.id, this.httpOptions).pipe(
+    return this.http.patch<Planet>(`${this.apiURL}/${planet.id}`, planet, this.httpOptions).pipe(
       catchError(this.handleError)
     );
   }

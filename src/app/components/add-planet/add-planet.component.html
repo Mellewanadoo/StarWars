@@ -2,7 +2,6 @@
 
 <form #planetForm="ngForm" (ngSubmit)="submitPlanet()">
 
-
   <label for="nom">Nom de la planète</label>
   <input type="text" class="form-control" id="nom" name="nom"  required [(ngModel)]="planet.nom" #nom="ngModel">
   <div [hidden]="nom.valid"
@@ -10,11 +9,18 @@
     Veuillez saisir un Nom
   </div>
 
-  <label for="type">Type</label>
-  <input type="text" class="form-control" id="type" name="type" required  [(ngModel)]="planet.localisation" #localisation="ngModel">
+  <label for="localisation">Localisation</label>
+  <input type="text" class="form-control" id="localisation" name="localisation" required  [(ngModel)]="planet.localisation" #localisation="ngModel">
   <div [hidden]="localisation.valid"
        class="alert alert-danger">
     Veuillez saisir la localisation de la planète
+  </div>
+
+  <label for="especesInteligentes">Espèces Intelligentes</label>
+  <input type="text" class="form-control" id="especesInteligentes" name="especesInteligentes" required  [(ngModel)]="planet.especesInteligentes" #especesInteligentes="ngModel">
+  <div [hidden]="especesInteligentes.valid"
+       class="alert alert-danger">
+    Veuillez saisir les espèces Intelligentes de la planète
   </div>
 
   <label for="paysage">Paysage</label>
@@ -29,6 +35,13 @@
   <div [hidden]="image.valid"
        class="alert alert-danger">
     Photo invalide
+  </div>
+
+  <label for="premiereApparition">Première apparition</label>
+  <input type="text" class="form-control" id="premiereApparition" name="premiereApparition" required  [(ngModel)]="planet.premiereApparition" #premiereApparition="ngModel">
+  <div [hidden]="premiereApparition.valid"
+       class="alert alert-danger">
+    Veuillez saisir la première apparition de la planète
   </div>
 
   <input [disabled]="!planetForm.valid" type="submit">
