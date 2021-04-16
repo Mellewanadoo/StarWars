@@ -1,12 +1,12 @@
-*{font-family: 'Poller One', cursive;
-  background: url('../../../assets/images/backgrounds.jpg');
+body{font-family: 'Poller One', cursive;
+  background: url('../../../assets/images/bgimg.jpg') no-repeat center center fixed;
   background-size: cover;
   color: rgb(180,143,17);
 }
 img{margin-left: auto;
   margin-right: auto;
-  width: 500px
-;}
+  width: 500px;
+}
 img:hover {
   transform: scaleX(-1);
 }

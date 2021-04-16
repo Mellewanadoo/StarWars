@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+body{font-family: 'Poller One', cursive;
+  background: url('/assets/images/bgimg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: rgb(180,143,17) ;
+}

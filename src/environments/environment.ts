@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: 'https://pizza-app69-dev.herokuapp.com/api/planets',
+  API_URL: 'https://pizza-app69.herokuapp.com/api/planets',
 };
 
 /*

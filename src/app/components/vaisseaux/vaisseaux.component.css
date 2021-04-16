@@ -1,5 +1,5 @@
 div,p,h1,h2,h3,table{font-family: 'Poller One', cursive;
-  background: url('../../../assets/images/backgrounds.jpg') no-repeat center center fixed;
+  background: url('../../../assets/images/bgimg.jpg') no-repeat center center fixed;
   background-size: cover;
   color: rgb(180,143,17) ;
 }
